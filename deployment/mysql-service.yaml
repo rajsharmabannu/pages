@@ -3,14 +3,16 @@ kind: Service
 metadata:
   labels:
     app: pages
-  name: pages
+    tier: database
+  name: pages-mysql
   namespace: raj
 spec:
   ports:
-    - name: pages-service-port
-      port: 8080
+    - name: mysql-service-port
+      port: 3306
       protocol: TCP
-      targetPort: 8080
+      targetPort: 3306
   selector:
     app: pages
+    tier: database
   type: NodePort
